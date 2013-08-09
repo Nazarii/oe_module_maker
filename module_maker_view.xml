@@ -29,45 +29,25 @@
         <field name="type">form</field>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-        <form string="Module" version="7.0">
-            <sheet>
-                <div class="oe_title">
-                    <h1>
-                        <label for="name" string="Module Name"/>
-                        <field name="name"/>
-                    </h1>
-                </div>
-                <newline/>
-                <group>
-                <field name="template_path" placeholder="Template Path"
-                    nolabel="1"/>
-                </group>
+            <form string="Module">
+                <field name="name"/>
+                <field name="template_path" nolabel="1"/>
             <separator string="Objects" colspan="4"/>
             <field name="object_ids">
-                <form string="Object" version="7.0">
-                    <sheet>
-                        <div class="oe_title">
-                            <div class="oe_edit_only">
-                                <label for="name" string="Object Name"/>
-                            </div>
-                            <h1>
-                                <field name="name" select="1"/>
-                            </h1>
-                        </div>
-                        <group col="4" colspan="4">
-                            <field name="description" placeholder="Description"
-                                nolabel="1" colspan="2"/>
-                        </group>
-                        <separator string="Fields" colspan="4"/>
-                        <field name="field_ids" colspan="4"/>
-                    </sheet>
+                <form string="Object">
+                    <field name="name" select="1"/>
+                    <group col="4" colspan="4">
+                        <field name="description"
+                            nolabel="1" colspan="2"/>
+                    </group>
+                    <separator string="Fields" colspan="4"/>
+                    <field name="field_ids" colspan="4"/>
                 </form>
             </field>
             <button string="Create Module" type="object" name="genrate_module"/>
             <separator string="Module File" colspan="4"/>
-            <field name="module_file" filename="file_name"/>
+            <field name="module_file"/>
             <field name="file_name" invisible="1"/>
-            </sheet>
         </form>
         </field>
     </record>
@@ -78,9 +58,9 @@
         <field name="type">search</field>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-        <search string="Module">
-            <field name="name" select="True"/>
-        </search>
+            <search string="Module">
+                <field name="name" select="True"/>
+            </search>
         </field>
     </record>
 
@@ -146,26 +126,17 @@
         <field name="type">form</field>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-        <form string="Object" version="7.0">
-            <sheet>
-                <div class="oe_title">
-                    <div class="oe_edit_only">
-                        <label for="name" string="Object Name"/>
-                    </div>
-                    <h1>
-                        <field name="name" select="1"/>
-                    </h1>
-                </div>
+            <form string="Object">
+                <field name="name" select="1"/>
                 <group col="4" colspan="4">
-                    <field name="description" placeholder="Description"
+                    <field name="description"
                         nolabel="1" colspan="2"/>
-                    <field name="module_id" placeholder="Module" nolabel="1"
+                    <field name="module_id" nolabel="1"
                         colspan="2"/>
                 </group>
                 <separator string="Fields" colspan="4"/>
                 <field name="field_ids" colspan="4"/>
-            </sheet>
-        </form>
+            </form>
         </field>
     </record>
 
